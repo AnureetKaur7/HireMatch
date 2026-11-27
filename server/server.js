@@ -14,6 +14,7 @@ app.use(
 );
 
 app.use(express.json());
+app.disable("x-powered-by");
 
 // Health check
 app.get("/api/health", (req, res) => {
