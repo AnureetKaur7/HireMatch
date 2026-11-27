@@ -1080,3 +1080,84 @@ textarea:disabled {
 .eligibility-warning p {
     margin-bottom: 0;
 }
+
+
+/* =========================
+   UI POLISH AND ACCESSIBILITY
+========================= */
+
+/* Consistent keyboard navigation */
+:where(
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [tabindex]
+):focus-visible {
+  outline: 3px solid rgba(13, 124, 102, 0.35);
+  outline-offset: 3px;
+}
+
+/* Better interaction feedback */
+.category-button:focus-visible,
+.skill-option:focus-visible,
+.selected-skill button:focus-visible,
+.custom-skill-button:focus-visible {
+  outline: 3px solid rgba(13, 124, 102, 0.3);
+  outline-offset: 2px;
+}
+
+/* Form validation states */
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--bad);
+  background-color: #fffafa;
+}
+
+input[aria-invalid="true"]:focus,
+select[aria-invalid="true"]:focus,
+textarea[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.1);
+}
+
+/* Improved skill selection feedback */
+.skill-option:active,
+.category-button:active {
+  transform: scale(0.97);
+}
+
+.selected-skill button {
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Better long text handling */
+.card,
+.applicant,
+.job-top {
+  overflow-wrap: anywhere;
+}
+
+/* Consistent text selection */
+::selection {
+  background: #cceee1;
+  color: var(--brand-dark);
+}
+
+/* Better mobile touch targets */
+@media (max-width: 600px) {
+  .category-button,
+  .skill-option,
+  .selected-skill button {
+    min-height: 40px;
+  }
+
+  .btn {
+    min-height: 42px;
+  }
+
+  .nav a {
+    padding: 5px 2px;
+  }
+}
